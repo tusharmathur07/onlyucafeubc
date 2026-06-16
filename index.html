@@ -301,6 +301,15 @@
   .foot-col a:hover{color:var(--paprika)}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:24px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.03em}
 
+  /* ---------- MARQUEE ---------- */
+  .marquee{border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);background:var(--paper-deep);overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-flex;align-items:center;padding:16px 0;animation:scroll 34s linear infinite;will-change:transform}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee-track span{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);padding:0 24px;display:inline-flex;align-items:center;gap:24px}
+  .marquee-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--turmeric);flex-shrink:0}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:920px){
     .hero-grid{grid-template-columns:1fr;gap:60px}
@@ -312,21 +321,27 @@
     .menu-list{grid-template-columns:1fr;gap:0}
   }
   @media (max-width:680px){
+    .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(247,241,227,0.96)}
     .nav-links{
-      position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--ink);
-      flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;padding:40px;
-      transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);z-index:80;
+      position:fixed;inset:0;background:var(--ink);
+      flex-direction:column;align-items:center;justify-content:center;gap:30px;padding:40px;
+      opacity:0;visibility:hidden;pointer-events:none;
+      transition:opacity .3s ease,visibility .3s ease;z-index:80;
     }
-    .nav-links.open{transform:translateX(0)}
-    .nav-links a.link{color:var(--paper);font-size:20px;font-family:var(--display);font-weight:600}
+    .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
+    .nav-links a.link{color:var(--paper);font-size:24px;font-family:var(--display);font-weight:600}
     .nav-links a.link::after{background:var(--turmeric)}
-    .menu-toggle{display:flex}
+    .nav-links .btn-primary{margin-top:8px;font-size:16px;padding:13px 28px}
+    .menu-toggle{display:flex;position:relative;z-index:90}
+    .menu-toggle.open span{background:var(--paper)}
     .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .menu-toggle.open span:nth-child(2){opacity:0}
     .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .marquee-track span{font-size:16px;padding:0 18px;gap:18px}
+    .marquee-track span::after{margin-left:18px}
     .photo-strip{grid-template-columns:1fr 1fr}
     .section{padding:70px 0}
-    .hero{padding:54px 0}
+    .hero{padding:54px 0 56px}
     .foot-top{flex-direction:column}
   }
 
@@ -418,6 +433,14 @@
     </div>
   </div>
 </header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>All-Day Breakfast</span><span>Butter Chicken</span><span>Eggs Benedict</span><span>Pav Bhaji</span><span>Gourmet Burgers</span><span>Mango Lassi</span><span>Fish &amp; Chips</span><span>Elaichi Chai</span>
+    <span>All-Day Breakfast</span><span>Butter Chicken</span><span>Eggs Benedict</span><span>Pav Bhaji</span><span>Gourmet Burgers</span><span>Mango Lassi</span><span>Fish &amp; Chips</span><span>Elaichi Chai</span>
+  </div>
+</div>
 
 <!-- TWO KITCHENS -->
 <section class="section kitchens" id="kitchens">
@@ -701,14 +724,13 @@
   // Mobile menu
   const toggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    toggle.classList.remove('open');
-    navLinks.classList.remove('open');
-  }));
+  function setMenu(open){
+    navLinks.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  toggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   // Menu tabs
   const tabs = document.querySelectorAll('.tab');
