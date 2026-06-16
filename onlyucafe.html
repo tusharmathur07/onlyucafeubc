@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only U Cafe | Breakfast &amp; Brunch at UBC Vancouver</title>
+<meta name="description" content="Only U Cafe is UBC's go-to spot for homemade diner-style breakfast and lunch. Eggs benedict, omelettes, burgers, and authentic Indian street food. Dine in or order online.">
+
+<!-- Open Graph (link previews when shared) -->
+<meta property="og:title" content="Only U Cafe | Breakfast & Brunch at UBC">
+<meta property="og:description" content="UBC's go-to spot for homemade breakfast, lunch, and authentic Indian street food. Family run, all-day brunch.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:image" content="">
+
+<!-- Favicon (simple U mark) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23221C14'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='900' fill='%23C7472F' text-anchor='middle'>U</text></svg>">
+
+<!-- LocalBusiness structured data (helps Google show hours, rating, map) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Only U Cafe",
+  "servesCuisine":["Breakfast","Brunch","Indian","Canadian"],
+  "priceRange":"$$",
+  "telephone":"+16042216511",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"5737 Dalhousie Rd, Suite 116",
+    "addressLocality":"Vancouver",
+    "addressRegion":"BC",
+    "postalCode":"V6T 2H9",
+    "addressCountry":"CA"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"16:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"15:00"}
+  ],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"308"}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E3;
+    --paper-deep:#EFE6D2;
+    --ink:#221C14;
+    --ink-soft:#5A4D3C;
+    --paprika:#C7472F;
+    --paprika-deep:#A8371F;
+    --turmeric:#E0A52E;
+    --herb:#3D5A3F;
+    --line:rgba(34,28,20,0.14);
+    --line-strong:rgba(34,28,20,0.28);
+    --display:"Fraunces",Georgia,serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+
+  ::selection{background:var(--turmeric);color:var(--ink)}
+
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--paprika);
+    font-weight:700;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+  }
+  .topbar .wrap{
+    display:flex;align-items:center;justify-content:center;gap:18px;
+    padding:8px 28px;flex-wrap:wrap;
+  }
+  .topbar .dot{width:5px;height:5px;border-radius:50%;background:var(--turmeric);opacity:.5}
+  .status-pill{display:inline-flex;align-items:center;gap:7px}
+  .status-led{width:8px;height:8px;border-radius:50%;background:#6FCF7F;box-shadow:0 0 0 0 rgba(111,207,127,.6);animation:pulse 2.4s infinite}
+  .status-led.closed{background:#E0A52E;animation:none}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,207,127,.55)}70%{box-shadow:0 0 0 7px rgba(111,207,127,0)}100%{box-shadow:0 0 0 0 rgba(111,207,127,0)}}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(247,241,227,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease,background .3s ease;
+  }
+  .nav.scrolled{border-bottom-color:var(--line);background:rgba(247,241,227,0.94)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px}
+  .brand{display:flex;align-items:baseline;gap:9px;font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:-0.01em}
+  .brand .u{color:var(--paprika)}
+  .brand small{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-soft);font-weight:700;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.link{font-size:14px;font-weight:500;position:relative;padding:4px 0}
+  .nav-links a.link::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--paprika);transition:width .26s ease}
+  .nav-links a.link:hover::after{width:100%}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:14px;cursor:pointer;
+    border:none;border-radius:100px;padding:11px 22px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--paprika);color:#fff;box-shadow:0 6px 16px -6px rgba(199,71,47,.7)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 22px -8px rgba(199,71,47,.75);background:var(--paprika-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn-dark{background:var(--ink);color:var(--paper)}
+  .btn-dark:hover{transform:translateY(-2px);background:#000}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:84px 0 70px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 82% 18%,rgba(224,165,46,.16),transparent 42%),
+      radial-gradient(circle at 12% 88%,rgba(199,71,47,.10),transparent 45%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
+  .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .hero-eyebrow .rule{height:1px;width:46px;background:var(--paprika);opacity:.55}
+  h1.hero-title{
+    font-family:var(--display);font-weight:900;
+    font-size:clamp(46px,7vw,86px);line-height:.96;letter-spacing:-0.02em;
+    margin-bottom:24px;
+  }
+  h1.hero-title .line{display:block;overflow:hidden}
+  h1.hero-title .line > span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+  h1.hero-title .line:nth-child(1) > span{animation-delay:.15s}
+  h1.hero-title .line:nth-child(2) > span{animation-delay:.28s}
+  h1.hero-title .line:nth-child(3) > span{animation-delay:.41s}
+  h1.hero-title em{font-style:italic;color:var(--paprika);font-weight:600}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero-sub{font-size:19px;color:var(--ink-soft);max-width:430px;margin-bottom:32px;opacity:0;animation:fade .8s ease .7s forwards}
+  @keyframes fade{to{opacity:1}}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade .8s ease .85s forwards}
+  .hero-meta{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap;opacity:0;animation:fade .8s ease 1s forwards}
+  .hero-meta .item{display:flex;flex-direction:column;gap:2px}
+  .hero-meta .num{font-family:var(--display);font-weight:900;font-size:26px;line-height:1}
+  .hero-meta .lbl{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .stars{color:var(--turmeric);letter-spacing:2px}
+
+  /* hero card / menu ticket */
+  .ticket{
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    border-radius:6px;
+    box-shadow:0 30px 60px -30px rgba(34,28,20,.4);
+    position:relative;
+    transform:rotate(1.4deg);
+    animation:dropin 1s cubic-bezier(.16,1,.3,1) .4s both;
+  }
+  @keyframes dropin{from{opacity:0;transform:rotate(1.4deg) translateY(34px)}to{opacity:1;transform:rotate(1.4deg) translateY(0)}}
+  .ticket::before,.ticket::after{
+    content:"";position:absolute;left:0;right:0;height:10px;
+    background-image:radial-gradient(circle at 6px -2px,transparent 5px,var(--paper) 5.5px);
+    background-size:12px 10px;background-repeat:repeat-x;
+  }
+  .ticket::before{top:-9px;transform:scaleY(-1)}
+  .ticket::after{bottom:-9px}
+  .ticket-inner{padding:30px 30px 34px}
+  .ticket h3{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;text-align:center;color:var(--ink-soft);padding-bottom:16px;border-bottom:2px dashed var(--line-strong);margin-bottom:18px}
+  .ticket-row{display:flex;align-items:baseline;font-family:var(--mono);font-size:14px;margin:11px 0}
+  .ticket-row .name{white-space:nowrap}
+  .ticket-row .leader{flex:1;border-bottom:2px dotted var(--line-strong);margin:0 8px;transform:translateY(-4px)}
+  .ticket-row .price{font-weight:700;color:var(--paprika)}
+  .ticket-stamp{
+    position:absolute;bottom:-22px;right:-14px;
+    background:var(--turmeric);color:var(--ink);
+    font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.08em;
+    padding:12px 16px;border-radius:50%;width:96px;height:96px;
+    display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.25;
+    transform:rotate(-12deg);box-shadow:0 12px 24px -10px rgba(34,28,20,.5);
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:96px 0}
+  .section-head{max-width:640px;margin-bottom:54px}
+  .section-head h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,52px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 16px}
+  .section-head p{font-size:17px;color:var(--ink-soft)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- TWO KITCHENS ---------- */
+  .kitchens{background:var(--ink);color:var(--paper)}
+  .kitchens .eyebrow{color:var(--turmeric)}
+  .kitchens .section-head h2{color:var(--paper)}
+  .kitchens .section-head p{color:rgba(247,241,227,.7)}
+  .k-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(247,241,227,.18);border-radius:8px;overflow:hidden}
+  .k-col{padding:42px 38px}
+  .k-col:first-child{border-right:1px solid rgba(247,241,227,.18)}
+  .k-col .tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:inline-block;padding:5px 12px;border-radius:100px;margin-bottom:20px}
+  .k-col.diner .tag{background:rgba(199,71,47,.22);color:#F0A493}
+  .k-col.spice .tag{background:rgba(224,165,46,.2);color:var(--turmeric)}
+  .k-col h3{font-family:var(--display);font-weight:900;font-size:30px;margin-bottom:14px;line-height:1.05}
+  .k-col p{color:rgba(247,241,227,.72);font-size:15px;margin-bottom:22px}
+  .k-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .k-col li{font-size:15px;display:flex;align-items:center;gap:11px}
+  .k-col li::before{content:"";width:6px;height:6px;border-radius:50%;flex-shrink:0}
+  .k-col.diner li::before{background:var(--paprika)}
+  .k-col.spice li::before{background:var(--turmeric)}
+  .k-note{text-align:center;font-family:var(--mono);font-size:13px;color:rgba(247,241,227,.6);margin-top:30px;letter-spacing:.04em}
+  .k-note span{color:var(--turmeric)}
+
+  /* ---------- MENU ---------- */
+  .menu-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .tab{
+    font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.04em;
+    padding:10px 18px;border:1.5px solid var(--line-strong);border-radius:100px;
+    background:transparent;color:var(--ink-soft);cursor:pointer;transition:.2s;text-transform:uppercase;
+  }
+  .tab:hover{border-color:var(--ink);color:var(--ink)}
+  .tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .menu-panel{display:none;animation:fade .5s ease}
+  .menu-panel.active{display:block}
+  .menu-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 52px}
+  .m-item{display:flex;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+  .m-item .m-name{font-weight:600;font-size:16px}
+  .m-item .m-desc{display:block;font-size:13px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+  .m-item .m-dots{flex:1;border-bottom:2px dotted var(--line);margin:0 10px;transform:translateY(-5px);min-width:18px}
+  .m-item .m-price{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--paprika);white-space:nowrap}
+  .menu-foot{margin-top:36px;font-family:var(--mono);font-size:13px;color:var(--ink-soft);letter-spacing:.03em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--paper-deep)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .rev-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:30px 28px;position:relative}
+  .rev-card .q{font-family:var(--display);font-size:60px;line-height:1;color:var(--turmeric);position:absolute;top:14px;right:22px;opacity:.6}
+  .rev-card .rev-stars{color:var(--turmeric);letter-spacing:2px;font-size:14px;margin-bottom:14px}
+  .rev-card p{font-size:16px;font-style:italic;font-family:var(--display);font-weight:400;color:var(--ink);margin-bottom:18px;position:relative;z-index:1}
+  .rev-card .who{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase}
+
+  /* ---------- PHOTO STRIP ---------- */
+  .photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+  .photo-tile{
+    aspect-ratio:1;border-radius:8px;border:2px dashed var(--line-strong);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    color:var(--ink-soft);background:var(--paper-deep);text-align:center;padding:14px;
+  }
+  .photo-tile svg{opacity:.45}
+  .photo-tile span{font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+
+  /* ---------- FIND US ---------- */
+  .find{background:var(--ink);color:var(--paper)}
+  .find .eyebrow{color:var(--turmeric)}
+  .find-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:stretch}
+  .find h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,52px);line-height:1.04;letter-spacing:-.02em;margin:14px 0 28px}
+  .info-row{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(247,241,227,.16)}
+  .info-row .ico{flex-shrink:0;color:var(--turmeric)}
+  .info-row .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,241,227,.6);margin-bottom:4px}
+  .info-row .v{font-size:16px}
+  .info-row .v a{border-bottom:1px solid rgba(247,241,227,.3)}
+  .info-row .v a:hover{border-color:var(--turmeric);color:var(--turmeric)}
+  .find-cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .map-frame{border-radius:10px;overflow:hidden;border:1px solid rgba(247,241,227,.2);min-height:380px;height:100%}
+  .map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.2) contrast(1.05)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--paper);padding:56px 0 30px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid var(--line)}
+  .foot-brand{font-family:var(--display);font-weight:900;font-size:28px}
+  .foot-brand .u{color:var(--paprika)}
+  .foot-brand p{font-family:var(--body);font-size:14px;font-weight:400;color:var(--ink-soft);margin-top:8px;max-width:280px}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  .foot-col a,.foot-col p{display:block;font-size:14px;margin-bottom:9px;color:var(--ink)}
+  .foot-col a:hover{color:var(--paprika)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:24px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.03em}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:60px}
+    .ticket{max-width:420px;margin:0 auto}
+    .k-grid{grid-template-columns:1fr}
+    .k-col:first-child{border-right:none;border-bottom:1px solid rgba(247,241,227,.18)}
+    .find-grid{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .menu-list{grid-template-columns:1fr;gap:0}
+  }
+  @media (max-width:680px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--ink);
+      flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;padding:40px;
+      transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);z-index:80;
+    }
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a.link{color:var(--paper);font-size:20px;font-family:var(--display);font-weight:600}
+    .nav-links a.link::after{background:var(--turmeric)}
+    .menu-toggle{display:flex}
+    .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .photo-strip{grid-template-columns:1fr 1fr}
+    .section{padding:70px 0}
+    .hero{padding:54px 0}
+    .foot-top{flex-direction:column}
+  }
+
+  .demo-flag{
+    position:fixed;bottom:16px;left:16px;z-index:90;
+    background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;
+    padding:8px 14px;border-radius:100px;letter-spacing:.05em;box-shadow:0 8px 20px -8px rgba(0,0,0,.5);
+    opacity:.92;
+  }
+  .demo-flag b{color:var(--turmeric)}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="status-pill"><span class="status-led" id="led"></span><span id="statusText">Open now</span></span>
+    <span class="dot"></span>
+    <span>Mon–Fri 9–4 · Sat–Sun 9–3</span>
+    <span class="dot"></span>
+    <span>UBC Village, Vancouver</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">Only <span class="u">U</span> Cafe <small>Est. UBC</small></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#kitchens" class="link">Our Kitchen</a>
+      <a href="#menu" class="link">Menu</a>
+      <a href="#about" class="link">About</a>
+      <a href="#find" class="link">Find Us</a>
+      <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary">Order Online</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span class="rule"></span>
+          <span class="eyebrow">UBC Village · Old Marketplace</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line"><span>The best brunch</span></span>
+          <span class="line"><span>on <em>campus.</em></span></span>
+        </h1>
+        <p class="hero-sub">Homemade, diner-style breakfast and lunch — from classic egg bennies to butter chicken. Good food, fair prices, no pretense.</p>
+        <div class="hero-cta">
+          <a href="#menu" class="btn btn-dark">View the Menu</a>
+          <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-ghost">Order on DoorDash →</a>
+        </div>
+        <div class="hero-meta">
+          <div class="item">
+            <span class="num"><span class="stars">★</span> 4.4</span>
+            <span class="lbl">Google Rating</span>
+          </div>
+          <div class="item">
+            <span class="num">300+</span>
+            <span class="lbl">Reviews</span>
+          </div>
+          <div class="item">
+            <span class="num">All-Day</span>
+            <span class="lbl">Breakfast</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="ticket">
+          <div class="ticket-inner">
+            <h3>★ House Favourites ★</h3>
+            <div class="ticket-row"><span class="name">Classic Eggs Benedict</span><span class="leader"></span><span class="price">18.99</span></div>
+            <div class="ticket-row"><span class="name">Butter Chicken</span><span class="leader"></span><span class="price">18.99</span></div>
+            <div class="ticket-row"><span class="name">Smoked Salmon Benny</span><span class="leader"></span><span class="price">20.99</span></div>
+            <div class="ticket-row"><span class="name">Pav Bhaji</span><span class="leader"></span><span class="price">16.99</span></div>
+            <div class="ticket-row"><span class="name">Bacon Cheese Burger</span><span class="leader"></span><span class="price">16.99</span></div>
+            <div class="ticket-row"><span class="name">Elaichi Chai</span><span class="leader"></span><span class="price">5.50</span></div>
+          </div>
+          <div class="ticket-stamp">FRESH<br>EVERY<br>DAY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TWO KITCHENS -->
+<section class="section kitchens" id="kitchens">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">One counter, two reputations</span>
+      <h2>Famous for brunch. Loved for the Indian food.</h2>
+      <p>Only U is a family-run campus spot known for its all-day brunch — and, just as much, for some of the most authentic Indian food on the west side. Regulars come for the eggs benny and stay for the butter chicken. Order whichever you're craving.</p>
+    </div>
+    <div class="k-grid reveal">
+      <div class="k-col diner">
+        <span class="tag">The Diner</span>
+        <h3>Brunch, done properly</h3>
+        <p>Cooked to order, served all day, exactly how a campus classic should be.</p>
+        <ul>
+          <li>Eggs benedict, eight ways</li>
+          <li>Build-your-own omelettes &amp; frittatas</li>
+          <li>Buttermilk pancakes &amp; French toast</li>
+          <li>Gourmet burgers &amp; hot sandwiches</li>
+        </ul>
+      </div>
+      <div class="k-col spice">
+        <span class="tag">The Other Kitchen</span>
+        <h3>Indian street food</h3>
+        <p>The dishes you can't easily find anywhere else near campus.</p>
+        <ul>
+          <li>Butter chicken &amp; paneer masala</li>
+          <li>Pav bhaji, chole &amp; vada pav</li>
+          <li>Kathi rolls &amp; samosa chaat</li>
+          <li>Elaichi chai &amp; filter coffee</li>
+        </ul>
+      </div>
+    </div>
+    <p class="k-note">Same kitchen. Same counter. <span>Order an egg benny and a mango lassi if you want — nobody's stopping you.</span></p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Menu</span>
+      <h2>Something for everyone.</h2>
+      <p>A taste of what's on offer. The full menu runs deep — this is where most people start.</p>
+    </div>
+
+    <div class="menu-tabs reveal" id="menuTabs">
+      <button class="tab active" data-panel="breakfast">Breakfast</button>
+      <button class="tab" data-panel="benedicts">Benedicts</button>
+      <button class="tab" data-panel="omelettes">Omelettes</button>
+      <button class="tab" data-panel="indian">Indian</button>
+      <button class="tab" data-panel="burgers">Burgers</button>
+      <button class="tab" data-panel="lunch">Lunch</button>
+      <button class="tab" data-panel="drinks">Drinks</button>
+    </div>
+
+    <div class="menu-body reveal">
+      <!-- BREAKFAST -->
+      <div class="menu-panel active" data-panel="breakfast">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Classic Eggs Benedict</span><span class="m-desc">Served with hash browns</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bacon or Sausage &amp; Two Eggs</span><span class="m-desc">Any style, with hash &amp; toast</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Buttermilk Pancakes (3)</span></span><span class="m-dots"></span><span class="m-price">13.99</span></div>
+          <div class="m-item"><span><span class="m-name">French Toast (2)</span><span class="m-desc">With a cup of fruit</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Breakfast Burrito</span><span class="m-desc">Salsa &amp; sour cream inside</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Farmer Sausage &amp; Eggs</span><span class="m-desc">With hash browns &amp; toast</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+        </div>
+      </div>
+      <!-- BENEDICTS -->
+      <div class="menu-panel" data-panel="benedicts">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Smoked Sockeye Salmon Benedict</span><span class="m-desc">With capers &amp; hash browns</span></span><span class="m-dots"></span><span class="m-price">20.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bacon Avocado Benedict</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Ham &amp; Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shrimp Avocado Benedict</span></span><span class="m-dots"></span><span class="m-price">20.99</span></div>
+          <div class="m-item"><span><span class="m-name">Mexican Avocado &amp; Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tomato Avocado Mushroom Benedict</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+        </div>
+      </div>
+      <!-- OMELETTES -->
+      <div class="menu-panel" data-panel="omelettes">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Veggie &amp; Cheese Omelette w/ Avocado</span><span class="m-desc">3 eggs, hash browns &amp; toast</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bacon Veggie &amp; Cheese Frittata</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Philly Cheese Steak Omelette</span><span class="m-desc">Green peppers &amp; onion</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Pesto Veggie Frittata w/ Avocado</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Country Scramble</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Smoke Oyster &amp; Mushroom Frittata</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+        </div>
+      </div>
+      <!-- INDIAN -->
+      <div class="menu-panel" data-panel="indian">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Butter Chicken</span><span class="m-desc">Basmati rice, paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Malai Matar Paneer Masala</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Pav Bhaji</span><span class="m-desc">With onion &amp; lime</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chole w/ Puri (3)</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Vada Pav (2 pc)</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken &amp; Egg Kathi Roll</span></span><span class="m-dots"></span><span class="m-price">13.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chole Samosa Chaat</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Masala Daal on Rice</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+        </div>
+      </div>
+      <!-- BURGERS -->
+      <div class="menu-panel" data-panel="burgers">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Cheeseburger</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bacon Mushroom Cheese Burger</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Lamb Burger</span><span class="m-desc">Feta &amp; chipotle mayo</span></span><span class="m-dots"></span><span class="m-price">20.99</span></div>
+          <div class="m-item"><span><span class="m-name">Santa Fe Veggie Burger</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Maui Chicken Breast Burger</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Crispy Fish Burger</span></span><span class="m-dots"></span><span class="m-price">20.99</span></div>
+        </div>
+      </div>
+      <!-- LUNCH -->
+      <div class="menu-panel" data-panel="lunch">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Fish (Two Pieces) &amp; Chips</span><span class="m-desc">Lemon &amp; tartar sauce</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Roast Beef Dip on Ciabatta</span><span class="m-desc">Served with fries</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Baked Meat Lasagna</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">BBQ Pulled Pork on Ciabatta</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Italian Spaghetti &amp; Meatballs</span></span><span class="m-dots"></span><span class="m-price">20.99</span></div>
+          <div class="m-item"><span><span class="m-name">Falafel Wrap</span><span class="m-desc">Served with fries</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+        </div>
+      </div>
+      <!-- DRINKS -->
+      <div class="menu-panel" data-panel="drinks">
+        <div class="menu-list">
+          <div class="m-item"><span><span class="m-name">Elaichi Chai (Cardamom Tea)</span></span><span class="m-dots"></span><span class="m-price">5.50</span></div>
+          <div class="m-item"><span><span class="m-name">Filter Coffee (Indian Street Coffee)</span></span><span class="m-dots"></span><span class="m-price">5.99</span></div>
+          <div class="m-item"><span><span class="m-name">Mango Lassi</span></span><span class="m-dots"></span><span class="m-price">7.99</span></div>
+          <div class="m-item"><span><span class="m-name">Matcha Latte</span></span><span class="m-dots"></span><span class="m-price">5.99</span></div>
+          <div class="m-item"><span><span class="m-name">Iced Thai Milk Tea (Cha Yen)</span></span><span class="m-dots"></span><span class="m-price">6.99</span></div>
+          <div class="m-item"><span><span class="m-name">Café Mocha</span></span><span class="m-dots"></span><span class="m-price">6.25</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-foot reveal">
+      <span>↳ Full menu — 200+ dishes — available in store &amp; on delivery.</span>
+      <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:13px;padding:9px 18px">See Full Menu &amp; Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section reviews" id="about">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:40px">
+      <span class="eyebrow">About Only U</span>
+      <h2>Good food. Good people. Right on campus.</h2>
+      <p>For years, Only U Cafe has fed the UBC community from its corner of the Old Marketplace in UBC Village — students between classes, faculty on a break, neighbours who've been coming for a decade. Generous portions, fair prices, and a kitchen that's always happy to customize. Come as you are.</p>
+    </div>
+
+    <div class="rev-grid reveal">
+      <div class="rev-card">
+        <span class="q" aria-hidden="true">&ldquo;</span>
+        <div class="rev-stars" aria-hidden="true">★★★★★</div>
+        <p>Convinced they're the best spot on campus — best eggs benedict, and I clean my plate every time.</p>
+        <span class="who">— Levin, Google</span>
+      </div>
+      <div class="rev-card">
+        <span class="q" aria-hidden="true">&ldquo;</span>
+        <div class="rev-stars" aria-hidden="true">★★★★★</div>
+        <p>The best Indian food I've had outside India. Authentic flavours, great veg options, consistently brilliant.</p>
+        <span class="who">— Vikhyat, Google</span>
+      </div>
+      <div class="rev-card">
+        <span class="q" aria-hidden="true">&ldquo;</span>
+        <div class="rev-stars" aria-hidden="true">★★★★★</div>
+        <p>Best brunch in UBC. Family run, the service is incredible, and the menu is huge — something for everyone.</p>
+        <span class="who">— Julie, Google</span>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:46px">
+      <p class="eyebrow" style="margin-bottom:14px">A look inside — photos to be added</p>
+      <div class="photo-strip">
+        <div class="photo-tile">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+          <span>Hero food shot</span>
+        </div>
+        <div class="photo-tile">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+          <span>Eggs benny</span>
+        </div>
+        <div class="photo-tile">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+          <span>Butter chicken</span>
+        </div>
+        <div class="photo-tile">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+          <span>The cafe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="section find" id="find">
+  <div class="wrap">
+    <div class="find-grid">
+      <div class="reveal">
+        <span class="eyebrow">Find Us</span>
+        <h2>Come say hello.</h2>
+        <div class="info-row">
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><div class="k">Address</div><div class="v">5737 Dalhousie Rd, Suite 116<br>UBC Village (Old Marketplace), Vancouver, BC</div></div>
+        </div>
+        <div class="info-row">
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><div class="k">Hours</div><div class="v">Monday–Friday · 9:00 am – 4:00 pm<br>Saturday–Sunday · 9:00 am – 3:00 pm</div></div>
+        </div>
+        <div class="info-row">
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L20 13l5 2v4a2 2 0 01-2 2A16 16 0 014 6a2 2 0 011-2z"/></svg></span>
+          <div><div class="k">Phone</div><div class="v"><a href="tel:+16042216511">(604) 221-6511</a></div></div>
+        </div>
+        <div class="find-cta">
+          <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary">Order on DoorDash</a>
+          <a href="https://www.ubereats.com/ca/store/only-u-cafe-ubc/AHUaKlJxTXWpk0ClFfJ2Uw" target="_blank" rel="noopener" class="btn btn-ghost" style="color:var(--paper);border-color:rgba(247,241,227,.4)">Uber Eats →</a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=5737+Dalhousie+Rd+Suite+116+Vancouver+BC&output=embed"
+          title="Only U Cafe location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        Only <span class="u">U</span> Cafe
+        <p>UBC's go-to spot for homemade breakfast, lunch, and a little bit of everything.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="#kitchens">Our Kitchen</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#find">Find Us</a>
+        </div>
+        <div class="foot-col">
+          <h4>Order</h4>
+          <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener">DoorDash</a>
+          <a href="https://www.ubereats.com/ca/store/only-u-cafe-ubc/AHUaKlJxTXWpk0ClFfJ2Uw" target="_blank" rel="noopener">Uber Eats</a>
+          <a href="tel:+16042216511">Call for Pickup</a>
+        </div>
+        <div class="foot-col">
+          <h4>Visit</h4>
+          <p>5737 Dalhousie Rd, #116</p>
+          <p>UBC Village, Vancouver</p>
+          <p>Mon–Fri 9–4 · Sat–Sun 9–3</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Only U Cafe · UBC Vancouver</span>
+      <span>Made with ☕ in Vancouver</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  }));
+
+  // Menu tabs
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.panel;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === target));
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Live open/closed
+  (function(){
+    const now = new Date();
+    const day = now.getDay(); // 0 Sun ... 6 Sat
+    const mins = now.getHours()*60 + now.getMinutes();
+    const weekend = (day === 0 || day === 6);
+    const open = 9*60;
+    const close = weekend ? 15*60 : 16*60;
+    const isOpen = mins >= open && mins < close;
+    const led = document.getElementById('led');
+    const txt = document.getElementById('statusText');
+    if(!isOpen){
+      led.classList.add('closed');
+      txt.textContent = 'Closed now · Opens 9 AM';
+    } else {
+      const closeH = weekend ? '3 PM' : '4 PM';
+      txt.textContent = 'Open now · until ' + closeH;
+    }
+  })();
+</script>
+</body>
+</html>
