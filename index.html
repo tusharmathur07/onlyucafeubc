@@ -18,11 +18,11 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Only U Cafe — brunch and authentic Indian food at UBC Village, Vancouver">
+<meta property="og:image:alt" content="Only U Cafe — brunch and authentic Indian street food at UBC Village, Vancouver">
 <!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Only U Cafe | Breakfast & Brunch at UBC">
-<meta name="twitter:description" content="UBC's go-to for homemade breakfast, lunch, and authentic Indian food. Family run, all-day brunch.">
+<meta name="twitter:description" content="UBC's go-to for homemade breakfast, lunch, and authentic Indian street food. Family run, all-day brunch.">
 <meta name="twitter:image" content="https://onlyucafe.ca/og-image.jpg">
 
 <!-- Favicon (simple U mark) -->
@@ -164,7 +164,7 @@
     pointer-events:none;
   }
   .hero .wrap{position:relative}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
   .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
   .hero-eyebrow .rule{height:1px;width:46px;background:var(--paprika);opacity:.55}
   h1.hero-title{
@@ -349,6 +349,43 @@
   .reviews{position:relative;overflow:hidden}
   .reviews::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2744%27%20height%3D%2744%27%3E%3Cpath%20d%3D%27M22%205%20L39%2022%20L22%2039%20L5%2022%20Z%27%20fill%3D%27none%27%20stroke%3D%27%23E0A52E%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%271%27/%3E%3C/svg%3E");background-size:46px 46px;pointer-events:none}
   .reviews .wrap{position:relative;z-index:1}
+  .hero-photo{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 30px 60px -30px rgba(34,28,20,.55);aspect-ratio:4/5}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo figcaption{position:absolute;left:0;right:0;bottom:0;margin:0;padding:40px 18px 16px;color:#fff;font-family:var(--display);font-weight:600;font-size:16px;background:linear-gradient(transparent,rgba(20,12,6,.82))}
+  .hero-photo .pill{position:absolute;top:14px;left:14px;background:var(--turmeric);color:var(--ink);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
+  .favourites{background:var(--paper-deep)}
+  .fav-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .fav-card{background:var(--paper);border:1px solid var(--line-strong);border-radius:14px;padding:26px 28px 28px}
+  .fav-card.feature{border-color:var(--turmeric);box-shadow:0 0 0 1px var(--turmeric) inset}
+  .fav-label{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--paprika);margin-bottom:14px}
+  .fav-card ul{list-style:none;margin:0;padding:0}
+  .fav-card li{font-size:15px;color:var(--ink);padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;line-height:1.4}
+  .fav-card li::before{content:"";width:6px;height:6px;background:var(--turmeric);transform:rotate(45deg);flex-shrink:0;margin-top:6px}
+  .fav-card li:last-child{border-bottom:0}
+  .fav-note{font-family:var(--mono);font-size:11.5px;color:var(--paprika);margin:14px 0 0;font-style:italic}
+  @media (max-width:680px){.fav-grid{grid-template-columns:1fr}}
+  /* sticky-note favourites */
+  .fav-notes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .note{position:relative;background:var(--paper);border:1px solid var(--line-strong);border-radius:4px;padding:18px 16px 15px;box-shadow:0 12px 26px -14px rgba(34,28,20,.45)}
+  .note:nth-child(1){transform:rotate(-1.5deg)}
+  .note:nth-child(2){transform:rotate(1.2deg)}
+  .note:nth-child(3){transform:rotate(.9deg)}
+  .note:nth-child(4){transform:rotate(-1deg)}
+  .note::before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:16px;transform:translateX(-50%) rotate(-3deg);background:rgba(224,165,46,.5);border:1px solid rgba(199,71,47,.18)}
+  .note.feature{border-color:var(--turmeric);box-shadow:0 14px 28px -12px rgba(199,71,47,.4)}
+  .note h4{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--paprika);margin:4px 0 9px}
+  .note ul{list-style:none;margin:0;padding:0}
+  .note li{font-family:var(--display);font-weight:500;font-size:13.5px;color:var(--ink);line-height:1.25;padding:3px 0}
+  /* find-us order groups */
+  .find-cta{flex-direction:column;gap:20px;align-items:flex-start}
+  .cta-group{width:100%}
+  .cta-label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--turmeric);margin-bottom:10px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-line{background:transparent;color:var(--paper);border:1.5px solid rgba(247,241,227,.4)}
+  .btn-line:hover{border-color:var(--turmeric);color:var(--turmeric);transform:translateY(-2px)}
+  /* top bar phone */
+  .topbar a.topbar-phone{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(247,241,227,.35)}
+  .topbar a.topbar-phone:hover{border-color:var(--turmeric);color:var(--turmeric)}
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:920px){
     .hero-grid{grid-template-columns:1fr;gap:60px}
@@ -400,6 +437,8 @@
   <div class="wrap">
     <span class="status-pill"><span class="status-led" id="led"></span><span id="statusText">Open now</span></span>
     <span class="dot"></span>
+    <a class="topbar-phone" href="tel:+16042216511">(604) 221-6511 &middot; for pickup</a>
+    <span class="dot"></span>
     <span>Mon–Fri 9–4 · Sat–Sun 9–3</span>
     <span class="dot"></span>
     <span>UBC Village, Vancouver</span>
@@ -415,7 +454,7 @@
       <a href="#menu" class="link">Menu</a>
       <a href="#about" class="link">About</a>
       <a href="#find" class="link">Find Us</a>
-      <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary">Order Online</a>
+      <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener" class="btn btn-primary">Order for Pickup</a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -434,10 +473,10 @@
           <span class="line"><span>The best brunch</span></span>
           <span class="line"><span>on <em>campus.</em></span></span>
         </h1>
-        <p class="hero-sub">Homemade, diner-style breakfast and lunch — from classic egg bennies to butter chicken. Good food, fair prices, no pretense.</p>
+        <p class="hero-sub">Homemade diner-style breakfast &amp; lunch, plus authentic Indian street food — all day, fair prices.</p>
         <div class="hero-cta">
           <a href="#menu" class="btn btn-dark">View the Menu</a>
-          <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-ghost">Order on DoorDash →</a>
+          <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener" class="btn btn-ghost">Order for Pickup →</a>
         </div>
         <div class="hero-meta">
           <div class="item">
@@ -456,17 +495,11 @@
       </div>
 
       <div class="hero-art">
-        <div class="ticket">
-          <div class="ticket-inner">
-            <h3>★ House Favourites ★</h3>
-            <div class="ticket-row"><span class="name">Butter Chicken</span><span class="leader"></span><span class="price">17.99</span></div>
-            <div class="ticket-row"><span class="name">Malai Matar Paneer</span><span class="leader"></span><span class="price">16.99</span></div>
-            <div class="ticket-row"><span class="name">Classic Eggs Benedict</span><span class="leader"></span><span class="price">16.99</span></div>
-            <div class="ticket-row"><span class="name">Smoked Salmon Benny</span><span class="leader"></span><span class="price">19.99</span></div>
-            <div class="ticket-row"><span class="name">Pav Bhaji</span><span class="leader"></span><span class="price">15.99</span></div>
-            <div class="ticket-row"><span class="name">Elaichi Chai</span><span class="leader"></span><span class="price">5.25</span></div>
-          </div>
-          <div class="ticket-stamp">FRESH<br>EVERY<br>DAY</div>
+        <div class="fav-notes reveal">
+          <div class="note feature"><h4>★ Indian Favourites</h4><ul><li>Rajma Chawal</li><li>Pav Bhaji</li><li>Malai Matar Paneer</li><li>Chole Puri</li></ul></div>
+          <div class="note"><h4>Breakfast</h4><ul><li>Bacon Avocado Benedict</li><li>Bacon, Egg, Cheese &amp; Avo Ciabatta</li><li>Philly Cheesesteak Omelette</li></ul></div>
+          <div class="note"><h4>Lunch</h4><ul><li>Cajun Chicken Burger</li><li>California Clubhouse</li><li>Chicken Kathi Roll</li></ul></div>
+          <div class="note"><h4>Specialty Drinks</h4><ul><li>Elaichi Chai</li><li>Indian Filter Coffee</li><li>Lattes — hot or iced</li></ul></div>
         </div>
       </div>
     </div>
@@ -488,7 +521,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">One counter, two reputations</span>
       <h2>Famous for brunch. Loved for the Indian food.</h2>
-      <p>Only U is a family-run campus spot known for its all-day brunch — and, just as much, for some of the most authentic Indian food on the west side. Regulars come for the eggs benny and stay for the butter chicken. Order whichever you're craving.</p>
+      <p>Only U is a family-run campus spot known for its all-day brunch — and, just as much, for some of the most authentic Indian street food on the west side. Regulars come for the eggs benny and stay for the butter chicken. Order whichever you're craving.</p>
     </div>
     <div class="k-grid reveal">
       <div class="k-col diner">
@@ -504,7 +537,7 @@
       </div>
       <div class="k-col spice">
         <span class="tag">★ House Specialty</span>
-        <h3>Authentic Indian food</h3>
+        <h3>Authentic Indian street food</h3>
         <p>Made-fresh dishes regulars call the best Indian food in the city — don't leave campus without trying them. Ask about today's specials.</p>
         <ul>
           <li>Butter chicken, white korma &amp; lamb curry</li>
@@ -528,39 +561,16 @@
     </div>
 
     <div class="menu-tabs reveal" id="menuTabs">
-      <button class="tab feature active" data-panel="indian">★ Indian</button>
-      <button class="tab" data-panel="breakfast">Breakfast</button>
-      <button class="tab" data-panel="burgers">Burgers</button>
-      <button class="tab" data-panel="sandwiches">Sandwiches</button>
+      <button class="tab active" data-panel="breakfast">Breakfast</button>
       <button class="tab" data-panel="more">Salads &amp; More</button>
+      <button class="tab" data-panel="sandwiches">Sandwiches</button>
+      <button class="tab" data-panel="burgers">Burgers</button>
+      <button class="tab feature" data-panel="indian">★ Indian</button>
       <button class="tab" data-panel="drinks">Drinks</button>
     </div>
 
     <div class="menu-body reveal">
-      <div class="menu-panel active" data-panel="indian">
-        <p class="panel-note">★ Our house specialty — made fresh. Ask about today’s Indian specials.</p>
-        <div class="menu-list">
-          <div class="m-item"><span><span class="m-name">Butter Chicken</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
-          <div class="m-item"><span><span class="m-name">White Chicken Korma</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
-          <div class="m-item"><span><span class="m-name">Lamb Potato Curry</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
-          <div class="m-item"><span><span class="m-name">Malai Matar Paneer</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chole (Chickpea Curry)</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chole w/ 3 Puri or 2 Pav</span><span class="m-desc">Onion &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Rajma Chawal</span><span class="m-desc">Kidney bean curry on rice, paratha &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Aloo Bhaji w/ 3 Puri</span><span class="m-desc">Onion &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Kadhi Onion Pakora Chawal</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Bhindi Aloo</span><span class="m-desc">W/ 2 paratha &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Aloo Poha</span><span class="m-desc">Contains peanuts</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">3 Eggs Bhurji</span><span class="m-desc">W/ 2 paratha &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Pav Bhaji</span><span class="m-desc">With onion &amp; lime</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">2 pc Vada Pav</span><span class="m-desc">Green, tamarind &amp; garlic chutney</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chole Samosa Chaat</span><span class="m-desc">Onion, cucumber, tomato &amp; chutney</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Samosa Grilled Cheese Sandwich</span><span class="m-desc">Mumbai style, served with fries</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Masala Potato Egg Roll</span><span class="m-desc">Single egg, or double egg $13.99</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tandoori Salmon Fillet Burger</span><span class="m-desc">With fries or salad</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
-        </div>
-      </div>
-      <div class="menu-panel" data-panel="breakfast">
+      <div class="menu-panel active" data-panel="breakfast">
         <div class="menu-list">
           <div class="menu-subhead">Breakfast Delights</div>
           <div class="menu-subnote">Served all day</div>
@@ -581,16 +591,6 @@
           <div class="m-item"><span><span class="m-name">Toasted Bagel</span></span><span class="m-dots"></span><span class="m-price">3.99</span></div>
           <div class="m-item"><span><span class="m-name">Toast or English Muffin</span></span><span class="m-dots"></span><span class="m-price">3.50</span></div>
           <div class="m-item"><span><span class="m-name">Add Cream Cheese</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
-          <div class="menu-subhead">Specialty Eggs Benedict</div>
-          <div class="menu-subnote">Served with hash browns</div>
-          <div class="m-item"><span><span class="m-name">2 Fried Eggs, Bacon, Cheese &amp; Avocado on Ciabatta</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Ham Tomato or Bacon Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
-          <div class="m-item"><span><span class="m-name">Bacon Avocado Eggs Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tomato Avocado Mushroom Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
-          <div class="m-item"><span><span class="m-name">Mexican Style Avocado &amp; Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
-          <div class="m-item"><span><span class="m-name">Smoked Sausages Benedict</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
-          <div class="m-item"><span><span class="m-name">Shrimp Avocado Egg Benedict</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
-          <div class="m-item"><span><span class="m-name">Smoked Sockeye Salmon Benedict w/ Capers</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
           <div class="menu-subhead">Omelettes, Scrambles &amp; Frittatas</div>
           <div class="menu-subnote">3 eggs, w/ hash browns &amp; toast</div>
           <div class="m-item"><span><span class="m-name">Country Scramble</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
@@ -604,6 +604,105 @@
           <div class="m-item"><span><span class="m-name">Chicken, Mushroom, Sun-Dried Tomato &amp; Feta Frittata</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
           <div class="m-item"><span><span class="m-name">Philly Cheese Steak Omelette</span><span class="m-desc">Green peppers &amp; onion</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
           <div class="m-item"><span><span class="m-name">Shrimp Avocado Tomato &amp; Cheese</span><span class="m-desc">Omelette or frittata</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="menu-subhead">Specialty Eggs Benedict</div>
+          <div class="menu-subnote">Served with hash browns</div>
+          <div class="m-item"><span><span class="m-name">2 Fried Eggs, Bacon, Cheese &amp; Avocado on Ciabatta</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Ham Tomato or Bacon Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bacon Avocado Eggs Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tomato Avocado Mushroom Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Mexican Style Avocado &amp; Tomato Benedict</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">Smoked Sausages Benedict</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shrimp Avocado Egg Benedict</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Smoked Sockeye Salmon Benedict w/ Capers</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+        </div>
+      </div>
+      <div class="menu-panel" data-panel="more">
+        <div class="menu-list">
+          <div class="menu-subhead">Appetizers &amp; Soups</div>
+          <div class="m-item"><span><span class="m-name">French Fries</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Onion Rings</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Tenders</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Spicy Fried Chicken</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Wings</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Veggie Quesadilla</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Quesadilla</span></span><span class="m-dots"></span><span class="m-price">13.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Tenders w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Wings w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Spicy Fried Chicken w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">2 pc Fish &amp; Chips</span><span class="m-desc">With lemon &amp; tartar sauce</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Soup</span><span class="m-desc">Small $5.99 / Large</span></span><span class="m-dots"></span><span class="m-price">6.99</span></div>
+          <div class="menu-subhead">Hot Entrees</div>
+          <div class="menu-subnote">Served with garlic bread</div>
+          <div class="m-item"><span><span class="m-name">Macaroni &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tuna Casserole</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shepherd’s Pie</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chili Con Carne</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Baked Meat Lasagna</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tortellini w/ Meat Sauce</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="menu-subhead">Salads</div>
+          <div class="m-item"><span><span class="m-name">Garden Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Charlie’s Tuna Salad</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Taco Salad</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shrimp Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chef’s Salad</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Pasta Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Potato Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Greek Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Fruit Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="menu-subhead">Sides</div>
+          <div class="m-item"><span><span class="m-name">Extra Paratha</span></span><span class="m-dots"></span><span class="m-price">3.50</span></div>
+          <div class="m-item"><span><span class="m-name">Extra Puri</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
+          <div class="m-item"><span><span class="m-name">Extra Pav</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
+          <div class="m-item"><span><span class="m-name">Side Yogurt</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
+        </div>
+      </div>
+      <div class="menu-panel" data-panel="sandwiches">
+        <div class="menu-list">
+          <div class="menu-subhead">Wraps</div>
+          <div class="m-item"><span><span class="m-name">Roast Chicken Caesar</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Louisiana Chicken Caesar</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="menu-subhead">Panini on Focaccia</div>
+          <div class="m-item"><span><span class="m-name">Ham &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Italian Cold Cuts w/ Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Turkey &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Veggie &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tuna &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="menu-subhead">Cold Sandwiches</div>
+          <div class="menu-subnote">Add green salad, fries, soup or Caesar $4.99 · onion rings $5.99</div>
+          <div class="m-item"><span><span class="m-name">Roast Beef</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Roast Turkey</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Roast Chicken</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Black Forest Ham</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Montreal Smoked Beef</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Garden Veggie &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tuna Salad</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Egg Salad</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shrimp Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Shrimp Avocado</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="menu-subhead">Hot Sandwiches</div>
+          <div class="m-item"><span><span class="m-name">Grilled Cheese</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
+          <div class="m-item"><span><span class="m-name">BLT</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Garden Veggie Cheese Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Grilled Ham &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tuna Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Beef Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Grilled Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Original Turkey Melt</span></span><span class="m-dots"></span><span class="m-price">11.50</span></div>
+          <div class="m-item"><span><span class="m-name">Classic Turkey Melt</span><span class="m-desc">Tomato &amp; bacon</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Monte Cristo</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">Triple Decker Clubhouse</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
+          <div class="m-item"><span><span class="m-name">California Clubhouse</span><span class="m-desc">With avocado</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="menu-subhead">Specialty Panini &amp; Sandwiches</div>
+          <div class="m-item"><span><span class="m-name">2 Fried Eggs, Bacon &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tuna &amp; Cheese Panini</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Pesto Chicken &amp; Cheese Panini</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Mexican Grilled Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Grilled Chicken &amp; Cheese w/ Avocado, Bacon &amp; Tomato</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Mushroom Sun-Dried Tomato &amp; Onion Panini</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Large Chicken Quesadilla</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
         </div>
       </div>
       <div class="menu-panel" data-panel="burgers">
@@ -634,119 +733,54 @@
           <div class="m-item"><span><span class="m-name">Pesto Veggie Burger w/ Swiss &amp; Avocado</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
         </div>
       </div>
-      <div class="menu-panel" data-panel="sandwiches">
+      <div class="menu-panel" data-panel="indian">
+        <p class="panel-note">★ Our house specialty — made fresh. Ask about today’s Indian specials.</p>
         <div class="menu-list">
-          <div class="menu-subhead">Hot Sandwiches</div>
-          <div class="m-item"><span><span class="m-name">Grilled Cheese</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">BLT</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Garden Veggie Cheese Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Grilled Ham &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tuna Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Beef Melt</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Grilled Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Original Turkey Melt</span></span><span class="m-dots"></span><span class="m-price">11.50</span></div>
-          <div class="m-item"><span><span class="m-name">Classic Turkey Melt</span><span class="m-desc">Tomato &amp; bacon</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Monte Cristo</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Triple Decker Clubhouse</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">California Clubhouse</span><span class="m-desc">With avocado</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="menu-subhead">Specialty Panini &amp; Sandwiches</div>
-          <div class="m-item"><span><span class="m-name">2 Fried Eggs, Bacon &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tuna &amp; Cheese Panini</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Pesto Chicken &amp; Cheese Panini</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Mexican Grilled Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Grilled Chicken &amp; Cheese w/ Avocado, Bacon &amp; Tomato</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Mushroom Sun-Dried Tomato &amp; Onion Panini</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Large Chicken Quesadilla</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="menu-subhead">Panini on Focaccia</div>
-          <div class="m-item"><span><span class="m-name">Ham &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Italian Cold Cuts w/ Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Turkey &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Veggie &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tuna &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="menu-subhead">Cold Sandwiches</div>
-          <div class="menu-subnote">Add green salad, fries, soup or Caesar $4.99 · onion rings $5.99</div>
-          <div class="m-item"><span><span class="m-name">Roast Beef</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Roast Turkey</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Roast Chicken</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Black Forest Ham</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Montreal Smoked Beef</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Garden Veggie &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tuna Salad</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Egg Salad</span></span><span class="m-dots"></span><span class="m-price">8.99</span></div>
-          <div class="m-item"><span><span class="m-name">Shrimp Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Shrimp Avocado</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="menu-subhead">Wraps</div>
-          <div class="m-item"><span><span class="m-name">Roast Chicken Caesar</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Louisiana Chicken Caesar</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-        </div>
-      </div>
-      <div class="menu-panel" data-panel="more">
-        <div class="menu-list">
-          <div class="menu-subhead">Hot Entrees</div>
-          <div class="menu-subnote">Served with garlic bread</div>
-          <div class="m-item"><span><span class="m-name">Macaroni &amp; Cheese</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tuna Casserole</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Shepherd’s Pie</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chili Con Carne</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Baked Meat Lasagna</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Tortellini w/ Meat Sauce</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="menu-subhead">Salads</div>
-          <div class="m-item"><span><span class="m-name">Garden Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Charlie’s Tuna Salad</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Taco Salad</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
-          <div class="m-item"><span><span class="m-name">Shrimp Caesar Salad</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chef’s Salad</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
-          <div class="m-item"><span><span class="m-name">Pasta Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Potato Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Greek Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Fruit Salad</span><span class="m-desc">Small $8.99 / Large</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="menu-subhead">Appetizers &amp; Soups</div>
-          <div class="m-item"><span><span class="m-name">French Fries</span></span><span class="m-dots"></span><span class="m-price">9.99</span></div>
-          <div class="m-item"><span><span class="m-name">Onion Rings</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Tenders</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Spicy Fried Chicken</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Wings</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
-          <div class="m-item"><span><span class="m-name">Veggie Quesadilla</span></span><span class="m-dots"></span><span class="m-price">11.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Quesadilla</span></span><span class="m-dots"></span><span class="m-price">13.99</span></div>
-          <div class="m-item"><span><span class="m-name">Chicken Tenders w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Wings w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Spicy Fried Chicken w/ Fries</span></span><span class="m-dots"></span><span class="m-price">14.99</span></div>
-          <div class="m-item"><span><span class="m-name">Soup</span><span class="m-desc">Small $5.99 / Large</span></span><span class="m-dots"></span><span class="m-price">6.99</span></div>
-          <div class="menu-subhead">Sides</div>
-          <div class="m-item"><span><span class="m-name">Extra Paratha</span></span><span class="m-dots"></span><span class="m-price">3.50</span></div>
-          <div class="m-item"><span><span class="m-name">Extra Puri</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
-          <div class="m-item"><span><span class="m-name">Extra Pav</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
-          <div class="m-item"><span><span class="m-name">Side Yogurt</span></span><span class="m-dots"></span><span class="m-price">2.99</span></div>
+          <div class="m-item"><span><span class="m-name">Butter Chicken</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">17.99</span></div>
+          <div class="m-item"><span><span class="m-name">White Chicken Korma</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">18.99</span></div>
+          <div class="m-item"><span><span class="m-name">Lamb Potato Curry</span><span class="m-desc">On rice w/ paratha &amp; salad</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
+          <div class="m-item"><span><span class="m-name">Malai Matar Paneer</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">16.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chole (Chickpea Curry)</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chole w/ 3 Puri or 2 Pav</span><span class="m-desc">Onion &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Rajma Chawal</span><span class="m-desc">Kidney bean curry on rice, paratha &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Aloo Bhaji w/ 3 Puri</span><span class="m-desc">Onion &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Kadhi Onion Pakora Chawal</span><span class="m-desc">On rice w/ paratha, onion &amp; pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Bhindi Aloo</span><span class="m-desc">W/ 2 paratha &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Aloo Poha</span><span class="m-desc">Contains peanuts</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">3 Eggs Bhurji</span><span class="m-desc">W/ 2 paratha &amp; mango pickle</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Pav Bhaji</span><span class="m-desc">With onion &amp; lime</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">2 pc Vada Pav</span><span class="m-desc">Green, tamarind &amp; garlic chutney</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chole Samosa Chaat</span><span class="m-desc">Onion, cucumber, tomato &amp; chutney</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Samosa Grilled Cheese Sandwich</span><span class="m-desc">Mumbai style, served with fries</span></span><span class="m-dots"></span><span class="m-price">15.99</span></div>
+          <div class="m-item"><span><span class="m-name">Chicken Kathi Roll</span><span class="m-desc">Single egg, or double egg $15.99</span></span><span class="m-dots"></span><span class="m-price">12.99</span></div>
+          <div class="m-item"><span><span class="m-name">Masala Potato Egg Roll</span><span class="m-desc">Single egg, or double egg $13.99</span></span><span class="m-dots"></span><span class="m-price">10.99</span></div>
+          <div class="m-item"><span><span class="m-name">Tandoori Salmon Fillet Burger</span><span class="m-desc">With fries or salad</span></span><span class="m-dots"></span><span class="m-price">19.99</span></div>
         </div>
       </div>
       <div class="menu-panel" data-panel="drinks">
         <div class="menu-list">
-          <div class="menu-subhead">Specialty Iced Drinks</div>
-          <div class="m-item"><span><span class="m-name">Iced Americano</span></span><span class="m-dots"></span><span class="m-price">3.99</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Latte</span></span><span class="m-dots"></span><span class="m-price">4.99</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Mocha</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Filter Coffee</span><span class="m-desc">Indian style</span></span><span class="m-dots"></span><span class="m-price">5.50</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Matcha Latte</span><span class="m-desc">Unsweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Chai Latte</span><span class="m-desc">Canadian style</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Elaichi Chai</span><span class="m-desc">Indian style</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Iced Thai Tea</span><span class="m-desc">Sweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Iced London Fog</span><span class="m-desc">Sweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="menu-subhead">Specialty Drinks</div>
+          <div class="menu-subnote">Served iced (prices shown) — or hot, just ask</div>
+          <div class="m-item"><span><span class="m-name">Americano</span></span><span class="m-dots"></span><span class="m-price">3.99</span></div>
+          <div class="m-item"><span><span class="m-name">Latte</span></span><span class="m-dots"></span><span class="m-price">4.99</span></div>
+          <div class="m-item"><span><span class="m-name">Mocha</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="m-item"><span><span class="m-name">Filter Coffee</span><span class="m-desc">Indian style</span></span><span class="m-dots"></span><span class="m-price">5.50</span></div>
+          <div class="m-item"><span><span class="m-name">Matcha Latte</span><span class="m-desc">Unsweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="m-item"><span><span class="m-name">Chai Latte</span><span class="m-desc">Canadian style</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="m-item"><span><span class="m-name">Elaichi Chai</span><span class="m-desc">Indian style</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="m-item"><span><span class="m-name">Thai Tea</span><span class="m-desc">Sweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
+          <div class="m-item"><span><span class="m-name">London Fog</span><span class="m-desc">Sweetened</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
           <div class="m-item"><span><span class="m-name">Mango Lassi</span></span><span class="m-dots"></span><span class="m-price">6.99</span></div>
           <div class="menu-subhead">Hot Drinks</div>
           <div class="m-item"><span><span class="m-name">Elaichi Chai</span><span class="m-desc">Cardamom tea</span></span><span class="m-dots"></span><span class="m-price">5.25</span></div>
           <div class="m-item"><span><span class="m-name">Filter Coffee</span><span class="m-desc">Hot or iced</span></span><span class="m-dots"></span><span class="m-price">5.25</span></div>
-          <div class="m-item"><span><span class="m-name">Thai Iced Tea</span></span><span class="m-dots"></span><span class="m-price">5.75</span></div>
-          <div class="m-item"><span><span class="m-name">Mango Lassi</span></span><span class="m-dots"></span><span class="m-price">6.99</span></div>
         </div>
       </div>
     </div>
 
     <div class="menu-foot reveal">
       <span>↳ Prices subject to change. Ask about today’s Indian specials.</span>
-      <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:13px;padding:9px 18px">See Full Menu &amp; Order</a>
+      <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:13px;padding:9px 18px">Order for Pickup</a>
     </div>
   </div>
 </section>
@@ -759,7 +793,7 @@
       <span class="eyebrow">About Only U</span>
       <h2>Good food. Good people. Right on campus.</h2>
       <p>For years, Only U Cafe has fed the UBC community from its corner of the Old Marketplace in UBC Village — students between classes, faculty on a break, neighbours who've been coming for a decade. Generous portions, fair prices, and a kitchen that's always happy to customize. Come as you are.</p>
-      <div class="about-tags reveal"><span>Family-run</span><span>Authentic Indian kitchen</span><span>Halal options</span><span>All-day breakfast</span><span>Vegetarian-friendly</span></div>
+      <div class="about-tags reveal"><span>Family-run</span><span>Authentic Indian kitchen</span><span>All-day breakfast</span><span>Vegetarian-friendly</span></div>
     </div>
 
     <div class="rev-grid reveal">
@@ -822,9 +856,21 @@
           <div><div class="k">Phone</div><div class="v"><a href="tel:+16042216511">(604) 221-6511</a></div></div>
         </div>
         <div class="find-cta">
-          <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener" class="btn btn-primary">Order on Clover</a>
-          <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-primary">Order on DoorDash</a>
-          <a href="https://www.ubereats.com/ca/store/only-u-cafe-ubc/AHUaKlJxTXWpk0ClFfJ2Uw" target="_blank" rel="noopener" class="btn btn-primary">Order on Uber Eats</a>
+          <div class="cta-group">
+            <span class="cta-label">Pick up</span>
+            <div class="cta-row">
+              <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener" class="btn btn-primary">Order for Pickup</a>
+              <a href="tel:+16042216511" class="btn btn-line">By Phone &middot; 10% Off</a>
+            </div>
+          </div>
+          <div class="cta-group">
+            <span class="cta-label">Delivery</span>
+            <div class="cta-row">
+              <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener" class="btn btn-line">DoorDash</a>
+              <a href="https://www.ubereats.com/ca/store/only-u-cafe-ubc/AHUaKlJxTXWpk0ClFfJ2Uw" target="_blank" rel="noopener" class="btn btn-line">Uber Eats</a>
+              <a href="https://www.fantuanorder.com/store/only-u-cafe/ca-4107" target="_blank" rel="noopener" class="btn btn-line">Fantuan</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="map-frame reveal">
@@ -854,10 +900,11 @@
         </div>
         <div class="foot-col">
           <h4>Order</h4>
-          <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener">Clover</a>
+          <a href="https://www.clover.com/online-ordering/only-u-cafe-vancouver" target="_blank" rel="noopener">Order for Pickup</a>
+          <a href="tel:+16042216511">Call for Pickup &middot; 10% Off</a>
           <a href="https://www.doordash.com/store/only-u-cafe-vancouver-31657/" target="_blank" rel="noopener">DoorDash</a>
           <a href="https://www.ubereats.com/ca/store/only-u-cafe-ubc/AHUaKlJxTXWpk0ClFfJ2Uw" target="_blank" rel="noopener">Uber Eats</a>
-          <a href="tel:+16042216511">Call for Pickup</a>
+          <a href="https://www.fantuanorder.com/store/only-u-cafe/ca-4107" target="_blank" rel="noopener">Fantuan</a>
         </div>
         <div class="foot-col">
           <h4>Visit</h4>
